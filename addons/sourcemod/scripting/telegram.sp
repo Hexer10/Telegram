@@ -4,7 +4,7 @@
 
 
 #define PLUGIN_AUTHOR "Hexah"
-#define PLUGIN_VERSION "1.00"
+#define PLUGIN_VERSION "1.01"
 
 #pragma newdecls required
 #pragma semicolon 1
@@ -94,7 +94,7 @@ public int HTTPRequest_Callback(Handle hRequest, bool bFailure, bool bRequestSuc
     {
         LogError("[TELEGRAM API] The requested URL had an internal error, http code 500");
     } 
-    else 
+    else if (eStatusCode != k_EHTTPStatusCode200OK)
     {
         LogError("[TELEGRAM API] The requested returned with an unexpected HTTP Code %d", eStatusCode);
     }
